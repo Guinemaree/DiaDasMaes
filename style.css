@@ -1,0 +1,279 @@
+/* =========================
+   BASE GERAL
+========================= */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#ffe6f0, #fff);
+
+  display: flex;
+  flex-direction: column; /* 🔥 ISSO resolve */
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   TEXTOS
+========================= */
+
+h1 {
+  color: #d63384;
+  font-size: 26px;
+}
+
+h2 {
+  color: #d63384;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+  background: #ff4d88;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+
+  transition: transform 0.15s ease;
+}
+
+button:hover {
+  background: #e6005c;
+}
+
+button:active {
+  transform: scale(0.94);
+}
+
+/* =========================
+   CARROSSEL (cards com fotos)
+========================= */
+
+.card-carousel {
+  width: 90%;
+  max-width: 350px;
+  aspect-ratio: 3 / 4; /* ou o formato que quiser */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.card-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.8s ease;
+  opacity: 1;
+}
+
+.card-carousel img.fade-out {
+  opacity: 0;
+}
+
+/* ajuste mobile */
+@media (max-width: 430px) {
+  .card-carousel {
+    height: 180px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   ANIMAÇÃO DE ENTRADA
+========================= */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 2s ease forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   QUALIDADES (retângulo moderno)
+========================= */
+
+.qualidades {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.lista-qualidades {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  background: #ffe6f0;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+
+  display: flex;
+  justify-content: center;  /* centraliza horizontal */
+  align-items: center;      /* centraliza vertical */
+
+  text-align: center;       /* garante centralização do texto */
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: aparecerItem 0.6s forwards;
+}
+
+.item:nth-child(1) { animation-delay: 0.2s; }
+.item:nth-child(2) { animation-delay: 0.4s; }
+.item:nth-child(3) { animation-delay: 0.6s; }
+.item:nth-child(4) { animation-delay: 0.8s; }
+.item:nth-child(5) { animation-delay: 1s; }
+.item:nth-child(6) { animation-delay: 1.2s; }
+.item:nth-child(7) { animation-delay: 1.4s; }
+.item:nth-child(8) { animation-delay: 1.6s; }
+.item:nth-child(9) { animation-delay: 1.8s; }
+.item:nth-child(10) { animation-delay: 2s; }
+.item:nth-child(11) { animation-delay: 2.2s; }
+.item:nth-child(12) { animation-delay: 2.4s; }
+
+
+@keyframes aparecerItem {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   CORAÇÕES ANIMADOS
+========================= */
+
+.hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  animation: subir 4s linear infinite;
+  color: #ff4d88;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+.fade-in-page {
+  animation: fadeInPage 0.6s ease;
+}
+
+.fade-out-page {
+  animation: fadeOutPage 0.4s ease forwards;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutPage {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.surpresa-btn {
+  margin-top: 25px;
+}
+
+.surpresa {
+  margin-top: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.5s ease;
+}
+
+.surpresa.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.escondido {
+  display: none;
+}
+.galeria {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
